@@ -17,12 +17,18 @@
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+  <form  class="form"> 
+    
+    <h1 id="inicio">Inicio de sesión</h1>
+    <label for="email" id="email-label"">Email</label>
+    <input type="email" class="form-control" id="email"  >
+  
+    <label for="password1" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="password1" required minlength="6">
+  
+    <button type="button" onclick="ingresar()">Ingresar</button>
+  
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
