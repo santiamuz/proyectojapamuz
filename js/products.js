@@ -1,4 +1,7 @@
-const autos_url = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+let id = localStorage.getItem("catID");
+
+
+const autos_url = "https://japceibal.github.io/emercado-api/cats_products/" + id + ".json"
 
 
 //array donde se cargarán los datos recibidos
@@ -26,13 +29,16 @@ let autosArray = [];
  function mostrarAutos(array){
     let htmlContentToAppend = "";
 
-
+    console.log(array.catName)
     for (let i = 0; i < array.products.length; i++){      
         let cats_products = array.products[i];
 
         
         htmlContentToAppend += ` 
-            <div class= "list-group-item list-group-item-action" >
+           
+        
+        <div onclick="setCatID(${cats_products.id})" > 
+        <div class= "list-group-item list-group-item-action" >
             <div class="row">
                 <div class="col-3">
                     <img src= " `+ cats_products.image +` " alt= "product image" class= "img-thumbnail" ></img>
@@ -49,9 +55,12 @@ let autosArray = [];
                 </div>
             </div>
         </div>
+        </div>
       
         `
        document.getElementById("autos").innerHTML = htmlContentToAppend;
+       let catName = array.catName;
+       document.getElementById("sub").innerHTML = "Aquí verás todos los productos de la categoría" + " " +  `<strong> `+  array.catName + `</strong>`
 
         
     }
