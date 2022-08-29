@@ -1,6 +1,5 @@
 let id = localStorage.getItem("catID");
 
-
 const autos_url = "https://japceibal.github.io/emercado-api/cats_products/" + id + ".json"
 
 
@@ -58,16 +57,18 @@ let autosArray = [];
         </div>
       
         `
-       document.getElementById("autos").innerHTML = htmlContentToAppend;
+       
+        document.getElementById("autos").innerHTML = htmlContentToAppend;
        let catName = array.catName;
        document.getElementById("sub").innerHTML = "Aquí verás todos los productos de la categoría" + " " +  `<strong> `+  array.catName + `</strong>`
 
-        
+
+
     }
- 
-} 
 
+ }
 
+//Accede al nombre de usuario guardado en local storage y lo muestra arriba a la derecha
 
-
-
+let email  = localStorage.getItem("email");
+document.getElementById("usuario").innerHTML  = email;
