@@ -7,7 +7,7 @@ function ingresar(){
     location.replace("portada.html");
 }
 
-//Añadimos listener para que esté pendiente si alguien hace click en el boton con id"btn" 
+//Añadimos listener para que esté pendiente si alguien hace click en el boton con id "btn" 
 //Cuando hacen "click", larga todo lo que está dentro
 
 document.addEventListener("DOMContentLoaded", function(){
