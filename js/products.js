@@ -29,9 +29,10 @@ let autosArray = [];
     for (let i = 0; i < array.products.length; i++){      
         let cats_products = array.products[i];
 
-            //Este if corresponde a filtrar
-        if ((cats_products.cost > min && cats_products.cost < max) || (min == undefined && max == undefined)) {
-
+            //Este if corresponde a filtrar 
+            if ((cats_products.cost >= min && cats_products.cost <= max) || (min == undefined && max == undefined) || 
+            (cats_products.cost >=min && max == undefined) || (cats_products.cost <= max && min == undefined)) {
+        
             htmlContentToAppend += ` 
         <div onclick="setCatID(${cats_products.id})" > 
         <div class= "list-group-item list-group-item-action" >
@@ -54,9 +55,8 @@ let autosArray = [];
         </div>
       
         `
-            
-        }
         document.getElementById("autos").innerHTML = htmlContentToAppend;
+        }
        let catName = array.catName;
        document.getElementById("sub").innerHTML = "Aquí verás todos los productos de la categoría" + " " +  `<strong> `+  array.catName + `</strong>`
     }
@@ -69,11 +69,10 @@ document.getElementById("usuario").innerHTML  = email;
 
 //COMIENZA SECCIÓN FILTRAR 
 document.getElementById("rangeFilterPrice").addEventListener("click", function () {
-    min = document.getElementById("rangeFilterPriceMin").value;
+    min =  document.getElementById("rangeFilterPriceMin").value;
     max = document.getElementById("rangeFilterPriceMax").value;
-
     // Si no hay parámetros de filtrado no sucede nada
-    if (min || max == "") {
+    if (min == "" || max == "") {
         return;
     }
     mostrarAutos(autosArray);
@@ -96,7 +95,7 @@ document.getElementById("clearRangeFilter").addEventListener("click", function()
 //Ascendente
 document.getElementById("priceAsc").addEventListener("click", function() {
     autosArray.products.sort(function(a,b)  {
-       return (a.cost - b.cost);
+       return (b.cost - a.cost);
     })
     mostrarAutos(autosArray);
 })
@@ -104,7 +103,7 @@ document.getElementById("priceAsc").addEventListener("click", function() {
 //Orden descendente
 document.getElementById("priceDesc").addEventListener("click", function() {
     autosArray.products.sort(function(a,b)  {
-       return(b.cost - a.cost);
+       return(a.cost - b.cost);
     })
     mostrarAutos(autosArray);
 })
@@ -112,7 +111,7 @@ document.getElementById("priceDesc").addEventListener("click", function() {
 //ORDENA POR RELEVANCIA
 document.getElementById("relBtn").addEventListener("click", function(){
     autosArray.products.sort(function(a,b) {
-        return(a.soldCount - b.soldCount);
+        return(b.soldCount - a.soldCount);
     })
     mostrarAutos(autosArray);
 })
