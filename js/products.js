@@ -28,7 +28,7 @@ let autosArray = [];
 
     for (let i = 0; i < array.products.length; i++){      
         let cats_products = array.products[i];
-
+           
             //Este if corresponde a filtrar 
             if ((cats_products.cost >= min && cats_products.cost <= max) || (min == undefined && max == undefined) || 
             (cats_products.cost >=min && max == undefined) || (cats_products.cost <= max && min == undefined)) {
@@ -58,7 +58,10 @@ let autosArray = [];
         document.getElementById("autos").innerHTML = htmlContentToAppend;
         }
        let catName = array.catName;
+       
        document.getElementById("sub").innerHTML = "Aquí verás todos los productos de la categoría" + " " +  `<strong> `+  array.catName + `</strong>`
+
+       
     }
 
  }
@@ -115,6 +118,14 @@ document.getElementById("relBtn").addEventListener("click", function(){
     })
     mostrarAutos(autosArray);
 })
+
+// Función para que al momento de hacer click en cada producto se guarde su id en local storage
+
+    function setCatID(id){
+    localStorage.setItem("productID", id)
+    window.location = "product-info.html"
+}
+    
 
    
 
