@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -31,6 +32,7 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" id="usuario"></a>
           </li>
         </ul>
       </div>
@@ -39,6 +41,27 @@
   <main>
     <div id="product-info">
 
+    </div>
+
+    <div id="comments">
+
+      <h2> Comentarios</h2>
+    </div>
+
+    <div> 
+
+      <h2>Comentar </h2>
+      <p>Tu opinión:</p>
+        <textarea id="comentario" class="form-control rounded-0" rows="10"></textarea> <br>
+        <input list="valores" id="puntuacion">
+          <datalist id="valores" >
+            <option value="1"> 1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+            <option value="4"> 4</option>
+            <option value="5"> 5</option>
+        </datalist> <br>
+        <button type="button" id="enviar" class="btn btn-outline-primary"> Enviar</button>
     </div>
     
   </main>

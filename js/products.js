@@ -46,7 +46,7 @@ let autosArray = [];
                         <h4> `+ cats_products.name + " - "+ cats_products.currency + ` ` + cats_products.cost + ` ` + ` </h4> 
                         <p> `+ cats_products.description +`</p> 
                         </div>
-                        <small class="text-muted">` + cats_products.soldCount + ` artículos</small> 
+                        <small class="text-muted">` + cats_products.soldCount + ` artículos </small> 
                     </div>
 
                 </div>
