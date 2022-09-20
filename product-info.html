@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="portada.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,9 +31,17 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="usuario"></a>
-          </li>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="desplegableUsuario" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link" id="usuario"></a>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -62,6 +70,10 @@
             <option value="5"> 5</option>
         </datalist> <br>
         <button type="button" id="enviar" class="btn btn-outline-primary"> Enviar</button>
+    </div>
+
+    <div id="related-products">
+
     </div>
     
   </main>

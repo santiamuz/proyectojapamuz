@@ -40,9 +40,10 @@ for (let i = 0; i < array.images.length; i++) {
 } 
     let htmlContentToAppend = "";
     
-    console.log(img);
+    
             htmlContentToAppend += ` 
     
+            
                     <h2> `+ array.name + ` </h2>
 
                     <hr>
@@ -67,6 +68,8 @@ for (let i = 0; i < array.images.length; i++) {
       
         `
         document.getElementById("product-info").innerHTML = htmlContentToAppend;
+
+       
     }
 
 
@@ -163,3 +166,50 @@ enviar.addEventListener("click", () => {
     }
 });
 
+// PRODUCTOS RELACIONADOS
+
+let relatedArray = [];
+
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+    document.getElementById("related-products").innerHTML= "";
+getJSONData(product_url).then(function(resultObj){
+    if (resultObj.status === "ok"){
+        relatedArray = resultObj.data;
+        showRelated(relatedArray);
+        }
+    }    
+)
+})
+
+function showRelated (array){
+    let htmlContentToAppend = ""; 
+
+        
+    htmlContentToAppend += ` 
+    
+    <hr>
+    <h3> Productos relacionados </h3> `  
+
+    for(let i=0; i< array.relatedProducts.length; i++){
+        let relatedProducts = array.relatedProducts[i];
+
+        
+
+        htmlContentToAppend += ` 
+        <div onclick="setCatID(${relatedProducts.id})" > 
+        <img src= `+ relatedProducts.image + ` class = "w-25" >  <p> `  + relatedProducts.name  + `  </p> `  
+        
+        document.getElementById("related-products").innerHTML = htmlContentToAppend;
+
+
+    }
+}
+
+// Función para que al momento de hacer click en cada producto se guarde su id en local storage
+
+function setCatID(id){
+    localStorage.setItem("productID", id)
+    window.location = "product-info.html"
+}
