@@ -44,11 +44,11 @@ for (let i = 0; i < array.images.length; i++) {
             htmlContentToAppend += ` 
     
             
-                    <h2> `+ array.name + ` </h2>
+                    <h2 class= "mt-3 pl-6"> `+ array.name + ` </h2>
 
                     <hr>
 
-                    <h3>Precio </h3> 
+                    <h3 class = "ml-3"> Precio </h3> 
                     <p> `+ array.currency + ` `+ array.cost + ` </p> 
               
                     <h3> Descripción </h3> 
@@ -109,9 +109,16 @@ function showComments(array){
             }
    
         htmlContentToAppend += ` 
+        <div class="d-grid gap-3"> 
+        <div class="p-2 bg-light border">
+
         <p> <strong> `+ product_comment.user  + `</strong> ` + " - " + product_comment.dateTime +  estrellas + `</p> 
 
-        <p> `+ product_comment.description +`</p>     
+        <p> `+ product_comment.description +`</p>
+        </div>
+        
+        </div>
+             
         ` 
         document.getElementById("comments").innerHTML = htmlContentToAppend;
 }
@@ -199,7 +206,7 @@ function showRelated (array){
 
         htmlContentToAppend += ` 
         <div onclick="setCatID(${relatedProducts.id})" > 
-        <img src= `+ relatedProducts.image + ` class = "w-25" >  <p> `  + relatedProducts.name  + `  </p> `  
+        <img src= `+ relatedProducts.image + ` class = "w-25 float-none" >  <p> `  + relatedProducts.name  + `  </p> `  
         
         document.getElementById("related-products").innerHTML = htmlContentToAppend;
 
