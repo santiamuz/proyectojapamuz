@@ -30,7 +30,8 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="desplegableUsuario" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="desplegableUsuario"
+              data-bs-toggle="dropdown" aria-expanded="false">
               <a class="nav-link" id="usuario"></a>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -44,12 +45,62 @@
     </div>
   </nav>
   <main>
+    <h1>Carrito de compras</h1>
+    <h3>Artículos a comprar</h3>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"> </th>
+            <th scope="col">Nombre </th>
+            <th scope="col">Costo </th>
+            <th scope="col">Cantidad </th>
+            <th scope="col">Subtotal </th>
+          </tr>
+        </thead>
+        <tbody id="carrito">
+        </tbody>
+      </table>
+      <hr>
+      <div id="shipping-options">
+
+        <div class="container">
+          <h3>Tipo de envío</h3>
+
+          <input type="radio" id="premium" name="shipping">
+          <label for="premium"> Premium 2 a 5 días (15%) </label> <br>
+          <input type="radio" id="express" name="shipping">
+          <label for="express"> Express 5 a 10 días (7%) </label> <br>
+          <input type="radio" id="standard" name="shipping">
+          <label for="standard"> Standard 12 a 15 días (5%) </label> <br> <br> <br>
+        </div>
+        <form>
+          <div class="container ">
+            <div class="row ">
+              <h3>Dirección de envío</h3>
+              <div class="col-4">
+                <p>Calle </p>
+                <input type="text" class="form-control">
+              </div>
+
+              <div class="col-1">
+                <p> Número </p>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-4">
+              <p> Esquina </p>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </form>
+        <hr>
       </div>
     </div>
+
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
