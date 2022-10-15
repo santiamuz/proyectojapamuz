@@ -16,8 +16,6 @@ document.getElementById("usuario").innerHTML = email;
 
 let productArray = [];
 
-
-
 document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("product-info").innerHTML = "";
     getJSONData(product_url).then(function (resultObj) {
@@ -28,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     )
 })
-
-
 
 //Función que recibe el array del JSON y los muestra en pantalla usando DOM
 function showProduct(array) {
@@ -44,8 +40,16 @@ function showProduct(array) {
     htmlContentToAppend += ` 
     
             <div class= "container" >
-                    <h2 class= "mt-3 pl-6"> `+ array.name + ` </h2>
 
+            <div class = "d-flex flew-row"> 
+                <div class="p-2 ">
+                    <h2 class= "mt-3 pl-6"> `+ array.name + ` </h2> 
+                </div>    
+                <div class = "p-4">    
+                    <button type="button" onclick=setProdID(${array.id}) class="btn btn-secondary float-right"> 
+                    Agregar al carrito </button>     
+                </div>
+            </div
                     <hr>
 
                     <h3 class = "ml-3"> Precio </h3> 
@@ -63,8 +67,10 @@ function showProduct(array) {
                     <p> `+ array.soldCount + `</p>    
 
                     <h3> Imágenes ilustrativas </h3> 
+          
+                    `+ img + `  
+                    
             </div>
-                    `+ img + ` 
       
         `
     document.getElementById("product-info").innerHTML = htmlContentToAppend;
@@ -72,6 +78,12 @@ function showProduct(array) {
 
 }
 
+//Agrega ID del producto al carrito
+function setProdID(id){
+    localStorage.setItem("productID", id)
+    window.location="cart.html"
+
+}
 
 
 // Array donde cargar los comentarios 
@@ -179,8 +191,6 @@ enviar.addEventListener("click", () => {
 // PRODUCTOS RELACIONADOS
 
 let relatedArray = [];
-
-
 
 document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("related-products").innerHTML = "";
