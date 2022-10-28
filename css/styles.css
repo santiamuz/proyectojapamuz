@@ -247,3 +247,7 @@ h1{
 #cantidad{
   width: 40%;
 }
+
+#payment-validation{
+  color: red;
+}

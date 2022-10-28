@@ -47,8 +47,8 @@
   <main>
     <h1>Carrito de compras</h1>
     <div class="container">
-    <h3>Artículos a comprar</h3>
-    
+      <h3>Artículos a comprar</h3>
+
       <table class="table table-hover ">
         <thead>
           <tr>
@@ -64,42 +64,199 @@
         </tbody>
       </table>
       <hr>
-      <div id="shipping-options">
+      <!-- <div id="shipping-options"> -->
 
-        <div class="container">
-          <h3>Tipo de envío</h3>
+      <div class="container">
+        <h3>Tipo de envío</h3>
 
-          <input type="radio" id="premium" name="shipping">
-          <label for="premium"> Premium 2 a 5 días (15%) </label> <br>
-          <input type="radio" id="express" name="shipping">
-          <label for="express"> Express 5 a 10 días (7%) </label> <br>
-          <input type="radio" id="standard" name="shipping">
-          <label for="standard"> Standard 12 a 15 días (5%) </label> <br> <br> <br>
-        </div>
-        <form>
-          <div class="container ">
-            <div class="row ">
-              <h3>Dirección de envío</h3>
-              <div class="col-4">
-                <p>Calle </p>
-                <input type="text" class="form-control">
+        <input type="radio" id="premium" name="shipping" oninput="envioPremium()" checked>
+        <label for="premium"> Premium 2 a 5 días (15%) </label> <br>
+        <input type="radio" id="express" name="shipping" oninput="envioExpress()">
+        <label for="express"> Express 5 a 10 días (7%) </label> <br>
+        <input type="radio" id="standard" name="shipping" oninput="envioStandard()">
+        <label for="standard"> Standard 12 a 15 días (5%) </label> <br> <br> <br>
+      </div>
+
+      <form class="needs-validation" novalidate id="form">
+
+        <div class="container ">
+          <div class="row ">
+            <h3>Dirección de envío</h3>
+            <div class="col-4">
+              <p>Calle </p>
+              <input type="text" class="form-control" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
               </div>
-
-              <div class="col-1">
-                <p> Número </p>
-                <input type="text" class="form-control">
+              <div class="invalid-feedback">
+                Por favor, ingresa la calle a la que enviaremos tu producto.
               </div>
             </div>
 
-            <div class="col-4">
-              <p> Esquina </p>
-              <input type="text" class="form-control">
+            <div class="col-1">
+              <p> Número </p>
+              <input type="text" class="form-control" required>
+              <div class="valid-feedback">
+                ¡Correcto!
+              </div>
+              <div class="invalid-feedback">
+                Por favor, ingresa el número de puerta.
+              </div>
             </div>
           </div>
-        </form>
-        <hr>
-      </div>
-    </div>
+          <div class="col-4">
+            <p> Esquina </p>
+            <input type="text" class="form-control" required>
+
+            <div class="valid-feedback">
+              ¡Listo!
+            </div>
+
+            <div class="invalid-feedback">
+              Por favor, ingresa la calle de la esquina.
+            </div>
+          </div>
+
+
+          <hr>
+        </div>
+
+        <div id="costos">
+
+          <h3>Costos</h3>
+
+          <div class="container">
+            <div class="row border">
+
+              <div class="col">
+                <h4>Subtotal</h4>
+                <p>Costo unitario del producto por Cantidad</p>
+              </div>
+
+              <div class="col">
+                <p id="costo"></p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row border">
+
+              <div class="col">
+                <h4>Costo de envío </h4>
+                <p>Según el tipo de envío</p>
+              </div>
+
+              <div class="col">
+                <p id="shipping-cost"></p>
+              </div>
+
+            </div>
+          </div>
+          <div class="container">
+            <div class="row border">
+              <div class="col">
+                <h4>Total (U$S) </h4>
+              </div>
+              <div class="col">
+                <p id="total"> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <div class="container">
+          <hr>
+
+          <h3>Métodos de pago</h3>
+
+          <!-- Botón modal -->
+          <div class="row">
+            <div id="payment-method-text" class="col-2">
+              <p>No se ha seleccionado</p>
+            </div>
+
+            <div class="col-3">
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Seleccionar
+              </button>
+            </div>
+          </div>
+          <div id="payment-validation">
+            <!-- <p>Seleccione un método de pago</p> -->
+          </div>
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Método de pago</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- COMIENZA EL CUERPO DEL MODAL  -->
+
+                <div class="modal-body">
+                  <input type="radio" id="card" name="metodo" oninput="paymentMethod()" required>
+                  <label for="card"> Tarjeta de crédito </label>
+                  <hr>
+                  <div class="row">
+                    <div class="col-5">
+                      <label>Número de tarjeta</label>
+                      <input type="text" class="form-control" id="card-number" required>
+                      <div class="invalid-feedback">Ingresa tu número de tarjeta</div>
+                    </div>
+
+                    <div class="col-3">
+                      <label>CVV</label>
+                      <input type="text" class="form-control" id="cvv" required>
+                      <div class="invalid-feedback">Ingresa tu número de CVV</div>
+                    </div>
+
+                  </div>
+
+                  <label>Vencimiento (MM/AA)</label>
+                  <div class="col-3">
+                    <input type="text" class="form-control" id="card-venc" required>
+                    <div class="invalid-feedback">Ingresa tu número de tarjeta</div>
+                  </div>
+
+                  <input type="radio" id="transfer" name="metodo" oninput="paymentMethod()">
+                  <label for="transfer"> Transferencia Bancaria</label>
+                  <br>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-5">
+                      <label>Número de cuenta</label>
+                      <input type="text" class="form-control" id="num-cuenta" required>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" id="btn-listo">Listo!</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> Cerrar </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button type="submit" class="btn btn-primary col" id="btn-finalizar">Finalizar Compra</button>
+          </div>
+        </div>
+        <div id="success"></div>
+      </form>
+
+
 
   </main>
 

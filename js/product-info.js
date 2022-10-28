@@ -46,7 +46,7 @@ function showProduct(array) {
                     <h2 class= "mt-3 pl-6"> `+ array.name + ` </h2> 
                 </div>    
                 <div class = "p-4">    
-                    <button type="button" onclick=setProdID(${array.id}) class="btn btn-secondary float-right"> 
+                    <button type="button" id="btn-add" onclick=setProdID(${array.id}) class="btn btn-secondary float-right" > 
                     Agregar al carrito </button>     
                 </div>
             </div
@@ -74,9 +74,9 @@ function showProduct(array) {
       
         `
     document.getElementById("product-info").innerHTML = htmlContentToAppend;
-
-
 }
+
+
 
 //Agrega ID del producto al carrito
 function setProdID(id){
