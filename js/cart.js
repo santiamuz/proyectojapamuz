@@ -149,7 +149,6 @@ btnFinalizar.addEventListener("click", function (e) {
 
     if (form.checkValidity()) {
 
-        console.log("anda");
         document.getElementById("success").innerHTML =
 
             ` <div class="alert alert-success" role="alert">
@@ -158,5 +157,6 @@ btnFinalizar.addEventListener("click", function (e) {
     }
 })
 
-
-
+function logout(){
+    localStorage.removeItem("email");
+}

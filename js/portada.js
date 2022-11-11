@@ -15,3 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
 let email = localStorage.getItem("email");
 document.getElementById("usuario").innerHTML = email;
 });
+
+function logout(){
+    localStorage.removeItem("email");
+}

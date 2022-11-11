@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 function showComments(array) {
     let htmlContentToAppend = "";
     let estrellas = "";
-    htmlContentToAppend += "<h3> Comentarios </h3>"
+    htmlContentToAppend += `<div class = "container"> <h3> Comentarios </h3></div>`
 
     for (let i = 0; i < array.length; i++) {
         let product_comment = array[i];
@@ -121,16 +121,17 @@ function showComments(array) {
         }
 
         htmlContentToAppend += ` 
-        <div class="container ">
-        <div class="d-grid gap-3"> 
-        <div class="p-2 bg-light border">
+
+        <div class="container">
+            <div class="d-grid gap-3"> 
+                <div class="p-2 bg-light border">
 
         <p> <strong> `+ product_comment.user + `</strong> ` + " - " + product_comment.dateTime + estrellas + `</p> 
 
         <p> `+ product_comment.description + `</p>
-        </div>
-        
-        </div>
+
+                </div>
+            </div>
         </div>
              
         `
@@ -220,11 +221,12 @@ function showRelated(array) {
         htmlContentToAppend += ` 
         <div onclick="setCatID(${relatedProducts.id})" > 
             <div class="row"> 
-                <div class= "col">
-                    <img src= `+ relatedProducts.image + ` class = "w-25" >  <p> ` + relatedProducts.name + `  </p> 
-                </div>
+                
+                    <img src= `+ relatedProducts.image + ` class = "w-25 mr-5"  >  <p> ` + relatedProducts.name + `  </p> 
+                
             </div>
         </div>
+        
         `
 
         document.getElementById("related-products").innerHTML = htmlContentToAppend;
@@ -238,4 +240,7 @@ function showRelated(array) {
 function setCatID(id) {
     localStorage.setItem("productID", id)
     window.location = "product-info.html"
+}
+function logout(){
+    localStorage.removeItem("email");
 }

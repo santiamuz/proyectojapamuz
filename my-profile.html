@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="portada.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -45,13 +45,14 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="desplegableUsuario" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="desplegableUsuario"
+              data-bs-toggle="dropdown" aria-expanded="false">
               <a class="nav-link" id="usuario"></a>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
               <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+              <li><a class="dropdown-item" href="index.html" onclick="logout()">Cerrar sesión</a></li>
             </ul>
           </div>
         </ul>
@@ -59,11 +60,82 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+
+    <form class="needs-validation" novalidate>
+      <div class="container">
+        <div class="row">
+          <h2 class="pt-2">Perfil</h2>
+          <br>
+          <br>
+          <hr>
+
+          <div class="col-5">
+            <label for="first-name">Primer Nombre * </label>
+            <input type="text" id="first-name" for="first-name" class="form-control" required>
+            <div class="valid-feedback">
+              ¡Excelente!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, ingresa tu nombre.
+            </div>
+          </div>
+
+          <div class="col-5">
+            <label for="second-name">Segundo Nombre</label>
+            <input type="text" id="second-name" for="second-name" class="form-control">
+          </div>
+
+          <div class="col-5">
+            <label for="last-name">Primer Apellido * </label>
+            <input type="text" id="last-name" for="last-name" class="form-control" required>
+            <div class="valid-feedback">
+              ¡Perfecto!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, ingresa tu apellido.
+            </div>
+          </div>
+
+          <div class="col-5">
+            <label for="second-last-name">Segundo Apellido</label>
+            <input type="text" id="second-last-name" for="second-last-name" class="form-control" e>
+          </div>
+
+          <div class="col-5">
+            <label for="email">Email </label>
+            <input type="email" id="email" for="email" class="form-control">
+          </div>
+
+          <div class="col-5">
+            <label for="tel-number">Teléfono de contacto *</label>
+            <input type="number" id="tel-number" for="tel-number" class="form-control" required>
+            <div class="valid-feedback">
+              ¡Todo bien!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, ingresa un teléfono de contacto.
+            </div>
+          </div>
+          
+          <div class="col-5 pt-3 ">
+            <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar cambios</button>
+          </div>
+
+        </div>
+
+        
+
+        
+      </div> 
+
+    
+
+      
+      <div id="alert"></div>
+    </form>
+   
+
+
   </main>
   <footer class="text-muted">
     <div class="container">

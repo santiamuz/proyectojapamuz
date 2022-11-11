@@ -125,7 +125,10 @@ document.getElementById("relBtn").addEventListener("click", function(){
     localStorage.setItem("productID", id)
     window.location = "product-info.html"
 }
-    
+
+function logout(){
+    localStorage.removeItem("email");
+}
 
 
    

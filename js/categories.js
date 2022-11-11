@@ -145,3 +145,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+function logout(){
+    localStorage.removeItem("email");
+}
